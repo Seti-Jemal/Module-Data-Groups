@@ -65,20 +65,22 @@ function startTimer() {
 
 // SET ALARM
 function setAlarm() {
+  clearInterval(timerId);
+  timerId = null;
+
   const input = document.getElementById("alarmSet").value;
 
-  // ensure clean number input
   timeRemaining = parseInt(input, 10);
 
-  if (isNaN(timeRemaining) || timeRemaining < 0) {
+  if (isNaN(timeRemaining) || timeRemaining <= 0) {
     timeRemaining = 0;
+    updateDisplay();
+    return; // don't start timer
   }
 
   updateDisplay();
 
-  if (timeRemaining > 0) {
-    startTimer();
-  }
+  startTimer();
 }
 
 // SETUP
