@@ -65,21 +65,18 @@ function startTimer() {
 
 // SET ALARM
 function setAlarm() {
-  clearInterval(timerId);
-  timerId = null;
+  stopAlarm();
 
   const input = document.getElementById("alarmSet").value;
-
   timeRemaining = parseInt(input, 10);
 
   if (isNaN(timeRemaining) || timeRemaining <= 0) {
     timeRemaining = 0;
     updateDisplay();
-    return; // don't start timer
+    return;
   }
 
   updateDisplay();
-
   startTimer();
 }
 
