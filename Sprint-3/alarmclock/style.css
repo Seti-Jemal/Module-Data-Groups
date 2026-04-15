@@ -9,3 +9,7 @@ h1 {
 #alarmSet {
   margin: 20px;
 }
+
+.alarm-activated {
+  background-color: red;
+}
